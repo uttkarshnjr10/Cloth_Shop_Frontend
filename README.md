@@ -1,73 +1,151 @@
-# Welcome to your Lovable project
+# Anupriya Fashion Hub — Frontend
 
-## Project info
+> **Where Tradition Meets Trend**
+>
+> A modern, responsive web application for managing a clothing shop — built for customers, staff, and owners.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## ✨ Features
 
-There are several ways of editing your application.
+### 🛍️ Customer Storefront
 
-**Use Lovable**
+- Browse the product catalog with category filters and search
+- View detailed product information in a slide-out drawer
+- Responsive hero banner and product grid
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### 👔 Staff Dashboard
 
-Changes made via Lovable will be committed automatically to this repo.
+- Record sales with multi-payment support (Cash / Online / Dues)
+- Manage inventory — add, update, and track stock
+- Track and manage customer dues
+- View recent activity feed
 
-**Use your preferred IDE**
+### 👑 Owner Dashboard
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- View sales history and analytics with interactive charts
+- Monitor inventory history and stock changes
+- Register and manage staff members
+- Dashboard stats cards and sticky notes
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 🔐 Authentication
 
-Follow these steps:
+- Role-based login (Owner / Staff) with JWT authentication
+- Automatic access-token refresh via interceptors
+- Protected routes per role
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🛠️ Tech Stack
 
-# Step 3: Install the necessary dependencies.
-npm i
+| Layer         | Technology                                            |
+| ------------- | ----------------------------------------------------- |
+| Framework     | [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) |
+| Build Tool    | [Vite](https://vite.dev/)                             |
+| Styling       | [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) |
+| UI Components | [Radix UI](https://www.radix-ui.com/) · [Framer Motion](https://www.framer.com/motion/) · [Recharts](https://recharts.org/) |
+| Routing       | [React Router v6](https://reactrouter.com/)           |
+| State / Data  | [TanStack React Query](https://tanstack.com/query) · React Context |
+| HTTP Client   | [Axios](https://axios-http.com/)                      |
+| Forms         | [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) |
+| Deployment    | [Vercel](https://vercel.com/)                         |
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── dashboard/      # Owner & Staff dashboard widgets
+│   ├── layout/         # Sidebar, bottom nav
+│   ├── shop/           # Storefront components
+│   └── ui/             # shadcn/ui primitives
+├── context/            # AuthContext (JWT auth state)
+├── data/               # Mock / seed data
+├── hooks/              # Custom React hooks
+├── layout/             # ProtectedRoute wrapper
+├── lib/                # Axios instance, utilities
+├── pages/              # Route-level page components
+└── main.tsx            # App entry point
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** ≥ 18 — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **npm** ≥ 9
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/uttkarshnjr10/Cloth_Shop_Frontend.git
+
+# 2. Navigate into the project
+cd Cloth_Shop_Frontend
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at **http://localhost:5173**.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Environment Variables
 
-**Use GitHub Codespaces**
+Create a `.env` file in the project root (see `.env.example` if available):
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+VITE_API_URL=https://your-api-domain.com/api/v1
+```
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 📜 Available Scripts
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+| Command            | Description                          |
+| ------------------ | ------------------------------------ |
+| `npm run dev`      | Start the Vite dev server            |
+| `npm run build`    | Production build                     |
+| `npm run build:dev`| Development build                    |
+| `npm run preview`  | Preview the production build locally |
+| `npm run lint`     | Run ESLint                           |
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 🗺️ Route Map
 
-## Can I connect a custom domain to my Lovable project?
+| Path                  | Access   | Description                |
+| --------------------- | -------- | -------------------------- |
+| `/`                   | Public   | Landing page (role select) |
+| `/shop`               | Public   | Customer storefront        |
+| `/login`              | Public   | Login page                 |
+| `/owner`              | Owner    | Owner dashboard            |
+| `/owner/sales`        | Owner    | Sales history              |
+| `/owner/inventory`    | Owner    | Inventory history          |
+| `/staff`              | Staff    | Staff dashboard            |
+| `/staff/billing`      | Staff    | Billing / record sales     |
+| `/staff/inventory`    | Staff    | Inventory management       |
+| `/staff/dues`         | Staff    | Dues management            |
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🤝 Contributing
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+1. Fork the repository
+2. Create a feature branch — `git checkout -b feature/your-feature`
+3. Commit your changes — `git commit -m "Add your feature"`
+4. Push to the branch — `git push origin feature/your-feature`
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is private. All rights reserved.
